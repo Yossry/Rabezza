@@ -2,11 +2,11 @@
 
 {
     "name": "gs_einv_pos_sa",
-    "version": "1.0",
+    "version": "15.0.0.0.2",
     'depends': ['base', 'point_of_sale'],
-    "author": "GS",
+    "author": "Global Solutions",
     "category": "Point of Sale",
-    "website": "https://gs.com/",
+    "website": "https://globalsolutions.dev",
     "images": ["static/description/assets/main_screenshot.gif"],
     "price": "0",
     "license": "OPL-1",
