@@ -26,12 +26,12 @@
              <t t-if="receipt.cashier">
                     <div class="cashier">
                         <div>--------------------------------</div>
-                        <div>Served by <span t-esc="receipt.cashier"/></div>
+                        <div>Served by <t t-esc="receipt.cashier"/></div>
                     </div>
              </t>
              <t t-if="receipt.company.vat">
                  <div class="cashier">
-                        <div>VAT No : <span t-esc="receipt.company.vat"/></div>
+                        <div>VAT No : <t t-esc="receipt.company.vat"/></div>
                  </div>
              </t>
             </div>
