@@ -120,7 +120,7 @@
             <tr>
                 <td style='text-align:left'>Total Be VAT</td>
                 <td style='text-align:center'>
-                    <t t-esc="env.pos.format_currency(receipt.subtotal)"/>
+                    <!-- <t t-esc="env.pos.format_currency(receipt.subtotal)"/> -->
                     <span t-esc="env.pos.format_currency(receipt.subtotal)"/>
                 </td>
                 <td style='text-align:right'> الإجمالي بدون الضريبة</td>
@@ -135,7 +135,7 @@
              <tr>
                  <td style='text-align:left'>Total Inc VAT</td>
                  <td style='text-align:center'>
-                     <t t-esc="env.pos.format_currency(receipt.total_with_tax)"/>
+                     <span t-esc="env.pos.format_currency(receipt.total_with_tax)"/>
                  </td>
                  <td style='text-align:right'> الإجمالي شامل الضريبة</td>
              </tr>
