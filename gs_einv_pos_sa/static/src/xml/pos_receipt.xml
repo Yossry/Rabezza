@@ -5,33 +5,33 @@
      <xpath expr="//div[hasclass('pos-receipt-contact')]" position="replace">
          <div class="pos-receipt-contact">
                 <t t-if="receipt.company.contact_address">
-                    <div><t t-esc="receipt.company.contact_address" /></div>
+                    <div><span t-esc="receipt.company.contact_address" /></div>
                 </t>
              <t t-if="receipt.company.phone">
-                    <div>Tel:<t t-esc="receipt.company.phone"/></div>
+                    <div>Tel:<span t-esc="receipt.company.phone"/></div>
                 </t>
 
              <t t-if="receipt.company.email">
-                    <div><t t-esc="receipt.company.email" /></div>
+                    <div><span t-esc="receipt.company.email" /></div>
                 </t>
              <t t-if="receipt.company.website">
-                    <div><t t-esc="receipt.company.website" /></div>
+                    <div><span t-esc="receipt.company.website" /></div>
                 </t>
              <t t-if="receipt.header_html">
                     <t t-raw="receipt.header_html"/>
                 </t>
              <t t-if="!receipt.header_html and receipt.header">
-                    <div style="white-space:pre-line"><t t-esc="receipt.header" /></div>
+                    <div style="white-space:pre-line"><span t-esc="receipt.header" /></div>
                 </t>
              <t t-if="receipt.cashier">
                     <div class="cashier">
                         <div>--------------------------------</div>
-                        <div>Served by <t t-esc="receipt.cashier"/></div>
+                        <div>Served by <span t-esc="receipt.cashier"/></div>
                     </div>
              </t>
              <t t-if="receipt.company.vat">
                  <div class="cashier">
-                        <div>VAT No : <t t-esc="receipt.company.vat"/></div>
+                        <div>VAT No : <span t-esc="receipt.company.vat"/></div>
                  </div>
              </t>
             </div>
@@ -87,22 +87,22 @@
                     </tr>
                     <tr style="border-bottom: 1px solid #e6e6e6;border-collapse: collapse;" t-foreach="orderlines" t-as="orderline" t-key="orderline.id">
                         <td>
-                            <t t-esc="orderline.get_product().display_name"/>
+                            <span t-esc="orderline.get_product().display_name"/>
                             <t t-if="orderline.get_discount() > 0">
                                 <div class="pos-disc-font">
-                                    With a <t t-esc="orderline.get_discount()"/>% discount
+                                    With a <span t-esc="orderline.get_discount()"/>% discount
                                 </div>
                             </t>
                         </td>
                         <td style='text-align:center'>
-                            <t t-esc="orderline.get_quantity()"/>
-                            <!--                            <t t-esc="orderline.get_quantity_str_with_unit()"/>-->
+                            <span t-esc="orderline.get_quantity()"/>
+                            <!--                            <span t-esc="orderline.get_quantity_str_with_unit()"/>-->
                         </td>
                         <td style='text-align:center'>
-                            <t t-esc="env.pos.format_currency_no_symbol(orderline.get_unit_display_price())"></t>
+                            <span t-esc="env.pos.format_currency_no_symbol(orderline.get_unit_display_price())"></span>
                         </td>
                         <td style='text-align:right'>
-                            <t t-esc="env.pos.format_currency_no_symbol(orderline.get_price_with_tax())"/>
+                            <span t-esc="env.pos.format_currency_no_symbol(orderline.get_price_with_tax())"/>
                         </td>
                     </tr>
                 </table>
@@ -120,7 +120,7 @@
             <tr>
                 <td style='text-align:left'>Total Be VAT</td>
                 <td style='text-align:center'>
-                    <!-- <t t-esc="env.pos.format_currency(receipt.subtotal)"/> -->
+                    <!-- <span t-esc="env.pos.format_currency(receipt.subtotal)"/> -->
                     <span t-esc="env.pos.format_currency(receipt.subtotal)"/>
                 </td>
                 <td style='text-align:right'> الإجمالي بدون الضريبة</td>
@@ -188,12 +188,12 @@
                 }
 
 
-                    var seller = "<t t-esc='receipt.company.name'/>";
-                    var invoice_no = "<t t-esc='receipt.name'/>";
-                    var order_date ="<t t-esc='receipt.date.isostring'/>";
-                    var total_vat= "<t t-esc='env.pos.format_currency(receipt.total_tax)'/>";
-                    var total_amount = "<t t-esc='env.pos.format_currency(receipt.total_with_tax)'/>";
-                    var vat_no ="<t t-esc='receipt.company.vat'/>";
+                    var seller = "<span t-esc='receipt.company.name'/>";
+                    var invoice_no = "<span t-esc='receipt.name'/>";
+                    var order_date ="<span t-esc='receipt.date.isostring'/>";
+                    var total_vat= "<span t-esc='env.pos.format_currency(receipt.total_tax)'/>";
+                    var total_amount = "<span t-esc='env.pos.format_currency(receipt.total_with_tax)'/>";
+                    var vat_no ="<span t-esc='receipt.company.vat'/>";
 
                      var qr_data =compute_sa_qr_code(seller, vat_no,order_date,total_amount,total_vat);
 
