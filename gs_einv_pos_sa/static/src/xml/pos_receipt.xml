@@ -121,6 +121,7 @@
                 <td style='text-align:left'>Total Be VAT</td>
                 <td style='text-align:center'>
                     <t t-esc="env.pos.format_currency(receipt.subtotal)"/>
+                    <span t-esc="env.pos.format_currency(receipt.subtotal)"/>
                 </td>
                 <td style='text-align:right'> الإجمالي بدون الضريبة</td>
             </tr>
