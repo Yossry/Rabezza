@@ -103,11 +103,8 @@
                                 <tree editable="bottom">
                                     <field name="product_id" domain="[('type', '!=', 'service')]" required="1"/>
                                     <field name="qty_available" invisible="0"/>
-                                    <field name="sh_is_secondary_unit" invisible="1"/>
                                     <field name="product_qty" required="1"/>
                                     <field name="product_uom_id" groups="uom.group_uom" required="1"/>
-                                    <field name="sh_sec_qty"/>
-                                    <field name="sh_sec_uom"/>
                                 </tree>
                             </field>
                         </page>
