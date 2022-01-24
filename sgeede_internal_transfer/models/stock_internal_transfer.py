@@ -143,23 +143,24 @@ class stock_internal_transfer_line(models.Model):
     state = fields.Selection([('cancel', 'Cancel'), ('draft', 'Draft'), ('send', 'Send'), ('done', 'Done')],
         string="Status", track_visibility='onchange', default="draft")
     transfer_id = fields.Many2one('stock.internal.transfer', string="Transfer", track_visibility="onchange")
-    sh_sec_uom = fields.Many2one(
-        "uom.uom",
-        'Secondary UOM',
-        compute="_compute_secondary_uom",
-        readonly=False
-    )
-    sh_sec_qty = fields.Float(
-        "Secondary Qty",
-        digits='Product Unit of Measure',
-        compute="_compute_product_uom_qty_sh",
-        readonly=False
-    )
+    # sh_sec_uom = fields.Many2one(
+    #     "uom.uom",
+    #     'Secondary UOM',
+    #     compute="_compute_secondary_uom",
+    #     readonly=False
+    # )
+    # sh_sec_qty = fields.Float(
+    #     "Secondary Qty",
+    #     digits='Product Unit of Measure',
+    #     compute="_compute_product_uom_qty_sh",
+    #     readonly=False
+    # )
+    #
+    # sh_is_secondary_unit = fields.Boolean(
+    #     "Related Sec Unit",
+    #
+    # )
 
-    sh_is_secondary_unit = fields.Boolean(
-        "Related Sec Unit",
-
-    )
     # related="product_id.sh_is_secondary_unit"
 
     @api.onchange('product_qty')
@@ -168,47 +169,47 @@ class stock_internal_transfer_line(models.Model):
             if self.qty_available < self.product_qty:
                 raise ValidationError(_("Quantity Bigger Than Quantity On Hand."))
 
-    @api.onchange('product_id')
-    def _onchange_product_id_is_secondary_unit(self):
-        for rec in self:
-            if rec.product_id.sh_is_secondary_unit:
-                rec.sh_is_secondary_unit = True
-            else:
-                rec.sh_is_secondary_unit = False
+    # @api.onchange('product_id')
+    # def _onchange_product_id_is_secondary_unit(self):
+    #     for rec in self:
+    #         if rec.product_id.sh_is_secondary_unit:
+    #             rec.sh_is_secondary_unit = True
+    #         else:
+    #             rec.sh_is_secondary_unit = False
 
-    @api.depends('product_qty', 'product_uom_id')
-    def _compute_product_uom_qty_sh(self):
-        if self:
-            for rec in self:
-                if rec.sh_is_secondary_unit and rec.sh_sec_uom:
-                    rec.sh_sec_qty = rec.product_uom_id._compute_quantity(
-                        rec.product_qty,
-                        rec.sh_sec_uom,
-                    )
-                else:
-                    rec.sh_sec_qty = 0.0
+    # @api.depends('product_qty', 'product_uom_id')
+    # def _compute_product_uom_qty_sh(self):
+    #     if self:
+    #         for rec in self:
+    #             if rec.sh_is_secondary_unit and rec.sh_sec_uom:
+    #                 rec.sh_sec_qty = rec.product_uom_id._compute_quantity(
+    #                     rec.product_qty,
+    #                     rec.sh_sec_uom,
+    #                 )
+    #             else:
+    #                 rec.sh_sec_qty = 0.0
+    #
+    #             float_num = rec.sh_sec_qty - int(rec.sh_sec_qty)
+    #             int_num = int(rec.sh_sec_qty)
+    #             if float_num > 0.25:
+    #                 int_num += 1
+    #                 rec.sh_sec_qty = int_num
+    #             else:
+    #                 rec.sh_sec_qty = int(rec.sh_sec_qty)
 
-                float_num = rec.sh_sec_qty - int(rec.sh_sec_qty)
-                int_num = int(rec.sh_sec_qty)
-                if float_num > 0.25:
-                    int_num += 1
-                    rec.sh_sec_qty = int_num
-                else:
-                    rec.sh_sec_qty = int(rec.sh_sec_qty)
+    # @api.depends('product_id', 'product_uom_id')
+    # def _compute_secondary_uom(self):
+    #     if self:
+    #         for rec in self:
+    #             if rec.product_id and rec.product_id.sh_is_secondary_unit and rec.product_id.uom_id:
+    #                 rec.sh_sec_uom = rec.product_id.sh_secondary_uom.id
+    #             elif not rec.product_id.sh_is_secondary_unit:
+    #                 rec.sh_sec_uom = False
+    #                 rec.sh_sec_qty = 0.0
 
-    @api.depends('product_id', 'product_uom_id')
-    def _compute_secondary_uom(self):
-        if self:
-            for rec in self:
-                if rec.product_id and rec.product_id.sh_is_secondary_unit and rec.product_id.uom_id:
-                    rec.sh_sec_uom = rec.product_id.sh_secondary_uom.id
-                elif not rec.product_id.sh_is_secondary_unit:
-                    rec.sh_sec_uom = False
-                    rec.sh_sec_qty = 0.0
-
-    @api.onchange('sh_sec_qty', 'sh_sec_uom')
-    def onchange_sh_sec_qty_sh(self):
-        if self and self.sh_is_secondary_unit and self.sh_sec_uom:
-            self.product_qty = self.sh_sec_uom._compute_quantity(
-                self.sh_sec_qty, self.product_uom_id
-            )
+    # @api.onchange('sh_sec_qty', 'sh_sec_uom')
+    # def onchange_sh_sec_qty_sh(self):
+    #     if self and self.sh_is_secondary_unit and self.sh_sec_uom:
+    #         self.product_qty = self.sh_sec_uom._compute_quantity(
+    #             self.sh_sec_qty, self.product_uom_id
+    #         )
