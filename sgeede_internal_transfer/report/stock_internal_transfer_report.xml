@@ -93,8 +93,6 @@
                                 <th class="text-center" style="background-color:#D3D3D3; color:black;width: 20%">Product/وصف المنتج</th>
                                 <th class="text-center" style="background-color:#D3D3D3; color:black;width: 10%">Quantity/الكمية</th>
                                 <th class="text-center" style="background-color:#D3D3D3; color:black;width: 20%">Unit of Measure/وحدة القياس</th>
-                                <th class="text-center" style="background-color:#D3D3D3; color:black;width: 20%">Secondary Qty/العدد</th>
-                                <th class="text-center" style="background-color:#D3D3D3; color:black;width: 20%">Secondary UOM/وحدة قياس العدد</th>
                             </tr>
                             <tr t-foreach="docs" t-as="doc1">
                                 <td style="text-align:center">
@@ -108,12 +106,6 @@
                                 </td>
                                 <td style="text-align:center">
                                     <span t-esc="doc1['product_uom_id']"/>
-                                </td>
-                                <td style="text-align:center">
-                                    <span t-esc="doc1['sh_sec_qty']"/>
-                                </td>
-                                <td style="text-align:center">
-                                    <span t-esc="doc1['sh_sec_uom']"/>
                                 </td>
                             </tr>
                         </table>
