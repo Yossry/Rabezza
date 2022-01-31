@@ -14,8 +14,9 @@ class PosConfig(models.Model):
     show_company_website = fields.Boolean(string='Show Company Website', help="Show Company Website.", default=True)
     show_qr_code = fields.Boolean(string="Show QR Code in Receipt", default=True)
 
-    leftpane_width = fields.Integer(string="leftpane Width", default="500")
-    font_size = fields.Integer(string="font-size", default="12")
+    leftpane_width = fields.Integer(string="left Pane Width", default="500")
+    product_name_font_size = fields.Integer(string="Product Name Font Size", default="12")
+    category_name_font_size = fields.Integer(string="Category Name Font Size", default="12")
 class POSOrder(models.Model):
     _inherit = 'pos.order'
 
