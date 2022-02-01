@@ -240,6 +240,7 @@
             </xpath>
 
             <xpath expr="//t[@t-if='isTaxIncluded']" position="replace">
+
 <!--                <t t-if="isTaxIncluded">-->
 <!--                        <t t-foreach="receipt.tax_details" t-as="tax" t-key="tax.name">-->
 <!--                            <table class="Subtotal">-->
@@ -281,7 +282,7 @@
 <!--                            </tr>-->
 <!--                        </thead>-->
 <!--                    </table>-->
-<!--                    </t>-->
+
             </xpath>
 
             <xpath expr="//div[hasclass('pos-receipt-order-data')]" position="replace">
