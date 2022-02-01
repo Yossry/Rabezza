@@ -18,8 +18,6 @@ class StockInternalTransferReportView(models.AbstractModel):
                 'product_id': line.product_id.name,
                 'product_qty': line.product_qty,
                 'product_uom_id': line.product_uom_id.name,
-                'sh_sec_qty': line.sh_sec_qty,
-                'sh_sec_uom': line.sh_sec_uom.name,
             })
             count += 1
             print("docs", docs)
