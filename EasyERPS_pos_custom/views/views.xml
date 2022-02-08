@@ -41,12 +41,18 @@
                                     </div>
                             </div>
                             <div class="row">
-                                    <label string="leftpane Width" for="leftpane_width" class="o_form_label col-lg-3 o_light_label"/>
+
+                                    <label string="left Pane Width" for="leftpane_width" class="o_form_label col-lg-3 o_light_label"/>
                                     <field name="leftpane_width" class="o_field_char o_field_widget o_quick_editable o_input"/>
                             </div>
                             <div class="row">
-                                    <label string="Font Size" for="font_size" class="o_form_label col-lg-3 o_light_label"/>
-                                    <field name="font_size" class="o_field_char o_field_widget o_quick_editable o_input"/>
+                                    <label string="Product Name Font Size" for="product_name_font_size" class="o_form_label col-lg-3 o_light_label"/>
+                                    <field name="product_name_font_size" class="o_field_char o_field_widget o_quick_editable o_input"/>
+                            </div>
+                            <div class="row">
+                                    <label string="Category Name Font Size" for="category_name_font_size" class="o_form_label col-lg-3 o_light_label"/>
+                                    <field name="category_name_font_size" class="o_field_char o_field_widget o_quick_editable o_input"/>
+
                             </div>
                         </div>
                 </div>

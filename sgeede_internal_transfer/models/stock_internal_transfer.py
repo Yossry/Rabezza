@@ -160,7 +160,6 @@ class stock_internal_transfer_line(models.Model):
     #     "Related Sec Unit",
     #
     # )
-
     # related="product_id.sh_is_secondary_unit"
 
     @api.onchange('product_qty')

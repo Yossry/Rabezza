@@ -240,48 +240,49 @@
             </xpath>
 
             <xpath expr="//t[@t-if='isTaxIncluded']" position="replace">
-                <t t-if="isTaxIncluded">
-                        <t t-foreach="receipt.tax_details" t-as="tax" t-key="tax.name">
-                            <table class="Subtotal">
-                            <thead>
-                                <tr>
-                                    <th style="padding-top: 15px">
-                                    <span style="font-weight: normal">
-                                       <div t-translation="off">الضريبة Taxes (15%)</div>
-<!--                                       <div style="padding-top: 8px" t-translation="off"> Taxes (15%)</div>-->
-                                    </span>
-                                    </th>
-                                    <th>
-                                        <span class="pos-receipt-right-align" style="font-weight: normal">
 
-                                           <t t-esc="env.pos.format_currency(receipt.total_tax)"/>
-                                        </span>
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
+<!--                <t t-if="isTaxIncluded">-->
+<!--                        <t t-foreach="receipt.tax_details" t-as="tax" t-key="tax.name">-->
+<!--                            <table class="Subtotal">-->
+<!--                            <thead>-->
+<!--                                <tr>-->
+<!--                                    <th style="padding-top: 15px">-->
+<!--                                    <span style="font-weight: normal">-->
+<!--                                       <div t-translation="off">الضريبة Taxes (15%)</div>-->
+<!--&lt;!&ndash;                                       <div style="padding-top: 8px" t-translation="off"> Taxes (15%)</div>&ndash;&gt;-->
+<!--                                    </span>-->
+<!--                                    </th>-->
+<!--                                    <th>-->
+<!--                                        <span class="pos-receipt-right-align" style="font-weight: normal">-->
 
-                    </t>
+<!--                                           <t t-esc="env.pos.format_currency(receipt.total_tax)"/>-->
+<!--                                        </span>-->
+<!--                                    </th>-->
+<!--                                </tr>-->
+<!--                            </thead>-->
+<!--                        </table>-->
 
-                    <table class="Subtotal">
-                        <thead>
-                            <tr>
-                                <th style="padding-top: 15px">
-                                <span style="font-weight: normal">
-                                   <div t-translation="off">مجموع الضريبة Total Taxes</div>
-<!--                                   <div style="padding-top: 8px" t-translation="off"> Total Taxes</div>-->
-                                </span>
-                                </th>
-                                <th>
-                                    <span class="pos-receipt-right-align" style="font-weight: normal">
+<!--                    </t>-->
 
-                                       <t t-esc="env.pos.format_currency(receipt.total_tax)"/>
-                                    </span>
-                                </th>
-                            </tr>
-                        </thead>
-                    </table>
-                    </t>
+<!--                    <table class="Subtotal">-->
+<!--                        <thead>-->
+<!--                            <tr>-->
+<!--                                <th style="padding-top: 15px">-->
+<!--                                <span style="font-weight: normal">-->
+<!--                                   <div t-translation="off">مجموع الضريبة Total Taxes</div>-->
+<!--&lt;!&ndash;                                   <div style="padding-top: 8px" t-translation="off"> Total Taxes</div>&ndash;&gt;-->
+<!--                                </span>-->
+<!--                                </th>-->
+<!--                                <th>-->
+<!--                                    <span class="pos-receipt-right-align" style="font-weight: normal">-->
+
+<!--                                       <t t-esc="env.pos.format_currency(receipt.total_tax)"/>-->
+<!--                                    </span>-->
+<!--                                </th>-->
+<!--                            </tr>-->
+<!--                        </thead>-->
+<!--                    </table>-->
+
             </xpath>
 
             <xpath expr="//div[hasclass('pos-receipt-order-data')]" position="replace">
