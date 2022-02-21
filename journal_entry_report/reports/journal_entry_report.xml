@@ -23,7 +23,6 @@
 
                     </style>
 
-
                     <div class="font_cairo">
                     <div class="page" style="font-size:15px;">
                         <div style="direction:ltr" class="font_cairo">
@@ -31,7 +30,7 @@
 <!--                            <h1 class="text-center" style="position:relative;bottom:55px;">-->
 <!--                                -->
 <!--                            </h1>                    -->
-                            <div style="margin-bottom:-20px;text-align:center;border-radius: 25px;background: #eef2f3; padding: 3px 0 3px 0; font-size:18px;
+                            <div style="position:relative;top:30px;margin-bottom:-20px;text-align:center;border-radius: 25px;background: #eef2f3; padding: 3px 0 3px 0; font-size:18px;
                                 width:45%;border:2px solid #38383d;margin:-37px 27.5% 10px 27.5%;z-index:1000;direction:ltr">
                                 <strong style="margin: 0 8px 0 8px;font-size: 15px;">Journal Entry- قيد يومية</strong>
                             </div>
@@ -71,7 +70,7 @@
 <!--                                &lt;!&ndash;                                    <strong style="color:#5d4037;" t-field="o.user_id.name"/>&ndash;&gt;-->
 <!--                                &lt;!&ndash;                                </div>&ndash;&gt;-->
 <!--                            </div>-->
-                            <table class="table table-borderless" style="font-size:15px;width:100%">
+                            <table class="table table-borderless" style="position:relative;top:20px;font-size:15px;width:100%">
                                 <tr >
 <!--                                    <td t-if="user.lang == 'en_US' and user.name" class="text-left"><strong>UserName:</strong></td>-->
 <!--                                    <td width="25%"><strong t-if="user.name" t-field="user.name"/></td>-->
