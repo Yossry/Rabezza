@@ -1,18 +1,17 @@
 <odoo>
     <template id="custom_journal_header">
         <div class="header" style="border-bottom: 2px solid black;font-family: Cairo-Regular;">
-                <div class="row" style="direction:ltr;text-align:left">
+            <div class="row" style="direction:ltr;text-align:left">
 
-                <div class="col-3">
-                    <img t-if="res_company.logo" t-att-src="image_data_uri(res_company.logo)" style="max-height: 100px;" alt="Logo"/>
-                </div>
+            <div class="col-3">
+                <img t-if="res_company.logo" t-att-src="image_data_uri(res_company.logo)" style="max-height: 100px;" alt="Logo"/>
+            </div>
 <!--                <div class="col-9 text-right" style="margin-top:22px;" t-field="res_company.report_header" name="moto"/>-->
-                <div class="col-5"></div>
-                <div class="col-4" name="company_address">
-                    <div t-field="res_company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
-                </div>
-                </div>
-
+            <div class="col-5"></div>
+            <div class="col-4" name="company_address">
+                <div t-field="res_company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+            </div>
+            </div>
             </div>
     </template>
 

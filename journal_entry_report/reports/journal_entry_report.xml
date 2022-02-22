@@ -113,18 +113,20 @@
                                     <tr class="thead-light" t-if="user.lang == 'en_US'">
                                         <th class="text-center" width="3%">#</th>
                                         <th class="text-center" width="15%">Account Name</th>
-                                        <th class="text-center" width="10%">Partner</th>
-                                        <th class="text-center" width="10%">Analytic Account</th>
-                                        <th class="text-center" width="52%">Description</th>
+                                        <th class="text-center" width="8%">Partner</th>
+                                        <th class="text-center" width="8%">Analytic Account</th>
+                                        <th class="text-center" width="8%">Branch</th>
+                                        <th class="text-center" width="48%">Description</th>
                                         <th class="text-center" width="5%">Debit</th>
                                         <th class="text-center" width="5%">Credit</th>
                                     </tr>
                                     <tr class="thead-light" t-if="user.lang == 'ar_001'">
                                         <th class="text-center" width="3%">م</th>
                                         <th class="text-center" width="15%">اسم الحساب الرئيسي</th>
-                                        <th class="text-center" width="10%">اسم الحساب الفرعي</th>
-                                        <th class="text-center" width="10%">الحساب التحليلي</th>
-                                        <th class="text-center" width="52%">البيان</th>
+                                        <th class="text-center" width="8%">اسم الحساب الفرعي</th>
+                                        <th class="text-center" width="8%">الحساب التحليلي</th>
+                                        <th class="text-center" width="8%">الفرع</th>
+                                        <th class="text-center" width="48%">البيان</th>
                                         <th class="text-center" width="5%">مدين</th>
                                         <th class="text-center" width="5%">دائن</th>
                                     </tr>
@@ -155,6 +157,9 @@
                                                 <span t-field="line.analytic_account_id.display_name"/>
                                             </td>
                                             <td>
+                                                <span t-field="line.branch_id.name"/>
+                                            </td>
+                                            <td>
                                                 <span style='width:35%' t-field="line.name"/>
                                             </td>
                                             <td>
@@ -171,7 +176,7 @@
                                 <tfooter style="background-color:#DDD;">
 
                                     <tr class="text-center" style="background-color:#DDD;">
-                                        <td colspan="5" style="font-size: 15px">
+                                        <td colspan="6" style="font-size: 15px">
                                             <strong t-if="user.lang == 'ar_001'">
                                                 الاجمالي:<u><span t-esc="'{:,.2f}'.format(total_debit)"></span></u>
                                                 &#160;(&#160;<span t-esc="o.compute_amount_in_word_ar(total_debit)"/>&#160;)&#160;
