@@ -20,11 +20,10 @@ function computeAllowedBranchIds(bids) {
     const { user_branches } = session;
     let allowedBranchIds = bids || [];
     const availableBranchesFromSession = user_branches.allowed_branches;
-    console.log(bids,"computeAllowedBranchIds..............",session ,availableBranchesFromSession , user_branches.allowed_branches)
+    
     const notReallyAllowedBranches = allowedBranchIds.filter(
         (id) => !(id in availableBranchesFromSession)
     );
-
     if (!allowedBranchIds.length || notReallyAllowedBranches.length) {
         allowedBranchIds = [user_branches.current_branch];
     }
@@ -34,8 +33,9 @@ function computeAllowedBranchIds(bids) {
 export const branchService = {
     dependencies: ["user", "router", "cookie"],
     start(env, { user, router, cookie }) {
-        console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq")
         let bids;
+        var list = [];
+        var dict = {};
         if ("bids" in router.current.hash) {
             bids = parseBranchIds(router.current.hash.bids);
         } else if ("bids" in cookie.current) {
@@ -49,9 +49,21 @@ export const branchService = {
 
         user.updateContext({ allowed_branch_ids: allowedBranchIds });
         const availableBranches = session.user_branches.allowed_branches;
+        const { user_companies } = session;
+        const availablecompany = env.services.company.allowedCompanyIds;
 
+        for (const [key, value] of Object.entries(availableBranches)) {
+            for (const [key1, value1] of Object.entries(availablecompany)) {
+                if(value['company'] === value1){
+                    dict[key] = value
+                }
+            }
+        }
+        list.push(dict)
+        const branches = list[0]
         return {
             availableBranches,
+            branches,
             get allowedBranchIds() {
                 return allowedBranchIds.slice();
             },
@@ -76,8 +88,8 @@ export const branchService = {
                         ];
                     }
                 }
-                nextBranchIds = nextBranchIds.length ? nextBranchIds : [branchIds[0]];
-
+                let branchId = nextBranchIds.reverse();
+                nextBranchIds = branchId.length ? branchId : [branchIds[0]];
                 // apply them
                 router.pushState({ bids: nextBranchIds }, { lock: true });
                 cookie.setCookie("bids", nextBranchIds);

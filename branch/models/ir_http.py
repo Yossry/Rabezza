@@ -17,6 +17,7 @@ class Http(models.AbstractModel):
         """ Add information about iap enrich to perform """
         user = request.env.user
         session_info = super(Http, self).session_info()
+    
         if self.env.user.has_group('base.group_user'):
             session_info.update({
                 # current_company should be default_company
@@ -35,6 +36,7 @@ class Http(models.AbstractModel):
                         comp.id: {
                             'id': comp.id,
                             'name': comp.name,
+                            'company': comp.company_id.id,
                         } for comp in user.branch_ids
                     },
                 },

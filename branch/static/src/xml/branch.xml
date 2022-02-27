@@ -9,7 +9,7 @@
                 <t t-if="!env.isSmall"><t t-esc="currentBranch.name"/></t>
             </span>
         </t>
-        <t t-foreach="Object.values(branchService.availableBranches)" t-as="branch">
+        <t t-foreach="Object.values(branchService.branches)" t-as="branch">
             <t t-call="web.SwitchBranchItem">
                 <t t-set="branch" t-value="branch" />
             </t>

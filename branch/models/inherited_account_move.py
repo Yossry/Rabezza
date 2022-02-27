@@ -3,9 +3,6 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from odoo.tools.float_utils import float_compare
-from odoo.exceptions import Warning
-
-
 
 
 class AccountMove(models.Model):
@@ -55,4 +52,4 @@ class AccountMoveLine(models.Model):
         res.update({'branch_id' : branch_id})
         return res
 
-    branch_id = fields.Many2one('res.branch', string="Branch",related="move_id.branch_id",store=True)
+    branch_id = fields.Many2one('res.branch', string="Branch",store=True)

@@ -16,3 +16,6 @@ class ResUsers(models.Model):
             self.has_group.clear_cache(self)
         user = super(ResUsers, self).write(values)
         return user
+
+
+
