@@ -2,7 +2,7 @@
 
 {
     'name': 'Multiple Branch Unit Operation Setup for All Applications Odoo',
-    'version': '15.0.0.0',
+    'version': '15.0.0.3',
     'category': 'Sales',
     'summary': 'Multiple Branch Management Multi Branch app Multiple Unit multiple Operating unit sales branch Sales Purchase branch Invoicing branch billing Voucher branch warehouse branch Payment branch Accounting Reports for single company Multi Branches multi company',
     "description": """
